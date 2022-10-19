@@ -62,19 +62,19 @@ export default class profilePage {
             .type(bio);
     }
 
-    clickButtonCreateProfile() {
+    clickCreateProfileButton() {
         cy.get('[data-test="profile-submit"]')
             .filter(':visible')
             .click({ force: true });
     }
 
-    clickButtonDashboard() {
+    clickDashboardButton() {
         cy.get('[data-test="profile-dashboard"]')
             .filter(':visible')
             .click({ force: true });
     }
 
-    clickButtonAddSocialMedia() {
+    clickSocialMediaButton() {
         cy.get('[data-test="profile-socials"]')
             .filter(':visible')
             .click({ force: true });

@@ -2,31 +2,31 @@
 
 export default class mainNavbarPage {
 
-    clickNavBarLinkQAs() {
+    clickQAsNavBarLink() {
         cy.get('[data-test="navbar-QAs"]')
             .filter(':visible')
             .click({ force: true });
     }
 
-    clickNavBarLinkAbout() {
+    clickAboutNavBarLink() {
         cy.get('[data-test="navbar-about"]')
             .filter(':visible')
             .click({ force: true });
     }
 
-    clickNavBarLinkRegister() {
+    clickRegisterNavBarLink() {
         cy.get('[data-test="navbar-register"]')
             .filter(':visible')
             .click({ force: true });
     }
 
-    clickNavBarLinkLogin() {
+    clickLoginNavBarLink() {
         cy.get('[data-test="navbar-login"]')
             .filter(':visible')
             .click({ force: true });
     }
 
-    clickNavBarLinkLogout() {
+    clickLogoutNavBarLink() {
         cy.get('[data-test="navbar-logout"]')
             .filter(':visible')
             .click({ force: true });

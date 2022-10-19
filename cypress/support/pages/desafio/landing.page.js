@@ -2,13 +2,13 @@
 
 export default class landingPage {
 
-    clickButtonRegister() {
+    clickRegisterButton() {
         cy.get('[data-test="landing-register"]')
             .filter(':visible')
             .click({ force: true });
     }
 
-    clickButtonLogin() {
+    clickLoginButton() {
         cy.get('[data-test="landing-login"]')
             .filter(':visible')
             .click({ force: true });

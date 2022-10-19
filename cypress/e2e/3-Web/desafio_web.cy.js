@@ -21,13 +21,13 @@ describe('Funcionalidade Cadastro:', () => {
         cy.visit('/')
     });
     it('Deve validar mensagem de alerta quando cadastrar usuário com email repetido', () => {
-        landingPage.clickButtonRegister();
+        landingPage.clickRegisterButton();
 
         registerPage.addName(faker.name.findName());
         registerPage.addEmail('testedojo@dojo.com');
         registerPage.addPassword();
         registerPage.addConfirmPassword();
-        registerPage.clickButtonRegister();
+        registerPage.clickRegisterButton();
         registerPage.assertAlertMessage('Usuário já registrado');
     });
 });
@@ -38,13 +38,13 @@ describe('Funcionalidade login:', () => {
     });
 
     it('Deve realizar o login sem sucesso', () => {
-        landingPage.clickButtonLogin();
+        landingPage.clickLoginButton();
 
         cy.fixture("usuario").then((user) => {
             const { email, senha } = user;
             loginPage.addLogin(email);
-            loginPage.addPassoword(`${senha}fail`);
-            loginPage.clickButtonLogin();
+            loginPage.addPassword(`${senha}fail`);
+            loginPage.clickLoginButton();
             loginPage.assertAlertMessage('Credenciais inválidas');
         })
     });
@@ -56,17 +56,17 @@ describe('Funcionalidade criar perfil:', () => {
     });
 
     afterEach(() => {
-        mainNavbar.clickNavBarLinkLogout();
+        mainNavbar.clickLogoutNavBarLink();
     });
     
     it('Deve criar perfil com sucesso', () => {
-        landingPage.clickButtonRegister();
+        landingPage.clickRegisterButton();
         cy.createAccount(faker.name.findName(), faker.internet.email()); // uso do comando
 
         dashboardPage.assertConfirmProfile();
         dashboardPage.assertTitle();
         dashboardPage.assertWellcome();
-        dashboardPage.clickButtonCreateProfile();
+        dashboardPage.clickCreateProfileButton();
 
         cy.fixture("profileForm").then((profile) => {
             cy.createProfile(profile); // uso do comando
@@ -77,10 +77,10 @@ describe('Funcionalidade criar perfil:', () => {
     });
 
     it('Deve validar mensagem de erro ao cadastrar com site errado', () => {
-        landingPage.clickButtonRegister();
+        landingPage.clickRegisterButton();
         cy.createAccount(faker.name.findName(), faker.internet.email()); // uso do comando
 
-        dashboardPage.clickButtonCreateProfile();
+        dashboardPage.clickCreateProfileButton();
         cy.fixture("profileForm").then((profile) => {
             const { status, company, location} = profile;
             profilePage.selectSatus(status);

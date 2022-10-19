@@ -2,7 +2,7 @@
 
 export default class dashboardPage {
 
-    clickButtonCreateProfile() {
+    clickCreateProfileButton() {
         cy.get('[data-test="dashboard-createProfile"]')
             .filter(':visible')
             .click({ force: true });

@@ -58,7 +58,7 @@ Cypress.Commands.add("createAccount", (name, email) => {
   registerPage.addEmail(email);
   registerPage.addPassword();
   registerPage.addConfirmPassword();
-  registerPage.clickButtonRegister();
+  registerPage.clickRegisterButton();
 })
 
 Cypress.Commands.add("createProfile", (object) => {
@@ -72,5 +72,5 @@ Cypress.Commands.add("createProfile", (object) => {
   profilePage.addGitUser(gitUser);
   profilePage.addBio(bio);
 
-  profilePage.clickButtonCreateProfile();
+  profilePage.clickCreateProfileButton();
 })

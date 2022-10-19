@@ -26,13 +26,13 @@ export default class registerPage {
             .type(password);
     }
 
-    clickButtonRegister() {
+    clickRegisterButton() {
         cy.get('[data-test="register-submit"]')
             .filter(':visible')
             .click({ force: true });
     }
 
-    clickLinkAlrearyHaveALogin() {
+    clickAlrearyHaveALoginLink() {
         cy.get('[data-test="register-login"]')
             .filter(':visible')
             .click({ force: true });
