@@ -1,0 +1,34 @@
+/// <reference types="Cypress" />
+
+export default class loginPage {
+    addLogin(login) {
+        cy.get('[data-test="login-email"] > .MuiInputBase-root > .MuiInputBase-input')
+            .filter(':visible')
+            .type(login);
+    }
+
+    addPassoword(password) {
+        cy.get('[data-test="login-password"] > .MuiInputBase-root > .MuiInputBase-input')
+            .filter(':visible')
+            .type(password);
+    }
+
+    clickButtonLogin() {
+        cy.get('[data-test="login-submit"]')
+            .filter(':visible')
+            .click({ force: true });
+    }
+
+    clickLinkAlrearyHaveALogin() {
+        cy.get('[data-test="login-register"]')
+            .filter(':visible')
+            .click({ force: true });
+    }
+
+    assertAlertMessage(value = 'Credenciais inválidas') {
+        cy.get('[data-test="alert"]')
+            .filter(':visible')
+            .should('include.text', value);
+    }
+
+};
